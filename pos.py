@@ -11,6 +11,8 @@ from dataclasses import dataclass, asdict
 from datetime import datetime
 from pathlib import Path
 
+from scale import get_weight_cli
+
 # ----------------------------
 # Modelos de datos
 # ----------------------------
@@ -117,11 +119,7 @@ class POS:
             print("Producto inexistente.")
             return
 
-        try:
-            weight = float(input("Ingresa el peso en kg: "))
-        except ValueError:
-            print("Peso inválido.")
-            return
+        weight = get_weight_cli()
 
         if weight <= 0 or weight > product.current_weight:
             print("Peso fuera de rango.")

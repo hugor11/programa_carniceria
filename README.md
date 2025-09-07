@@ -17,3 +17,21 @@ python pos_gui.py
 ```
 
 Se abrirá una ventana con pestañas para ventas, inventario y métricas. Requiere un entorno gráfico disponible.
+
+## Integración con balanza
+
+El sistema puede leer automáticamente el peso de una balanza conectada por puerto serial (`/dev/ttyUSB0`). Si no se detecta una balanza, se solicitará el peso de forma manual.
+
+## API REST básica
+
+Se incluye un servidor HTTP sencillo para integrar el POS con otras aplicaciones.
+
+```bash
+python api.py
+```
+
+Endpoints disponibles:
+
+- `GET /inventory` – Lista de productos con su peso actual.
+- `POST /sales` – Registra una venta. Se envía JSON con `product` y `weight`.
+- `GET /metrics` – Devuelve ganancias acumuladas y mermas.

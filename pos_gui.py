@@ -12,6 +12,8 @@ from pathlib import Path
 import tkinter as tk
 from tkinter import ttk, messagebox
 
+from scale import get_weight_or_none
+
 from pos import Inventory
 
 
@@ -77,6 +79,9 @@ class POSApp:
         ttk.Entry(self.sales_frame, textvariable=self.weight_var).grid(
             row=1, column=1, padx=5, pady=5
         )
+        ttk.Button(
+            self.sales_frame, text="Leer balanza", command=self.leer_balanza
+        ).grid(row=1, column=2, padx=5, pady=5)
 
         ttk.Button(
             self.sales_frame, text="Realizar venta", command=self.realizar_venta
@@ -142,6 +147,16 @@ class POSApp:
         self.weight_var.set("")
         self._refresh_inventory()
         self._refresh_metrics()
+
+    def leer_balanza(self):
+        """Obtiene el peso desde la balanza y lo coloca en el campo."""
+        weight = get_weight_or_none()
+        if weight is None:
+            messagebox.showwarning(
+                "Balanza", "No se pudo leer la balanza. Ingresa el peso manualmente."
+            )
+        else:
+            self.weight_var.set(f"{weight:.3f}")
 
     def _refresh_inventory(self):
         self.inventory_tree.delete(*self.inventory_tree.get_children())
