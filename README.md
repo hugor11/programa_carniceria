@@ -20,14 +20,11 @@ Se abrirá una ventana con pestañas para ventas, inventario y métricas. Requie
 
 ## Integración con balanza
 
-El sistema puede leer automáticamente el peso de una balanza conectada por
-puerto serial (`/dev/ttyUSB0`). Si no se detecta una balanza, se solicitará el
-peso de forma manual.
+El sistema puede leer automáticamente el peso de una balanza conectada por puerto serial (`/dev/ttyUSB0`). Si no se detecta una balanza, se solicitará el peso de forma manual.
 
 ## API REST básica
 
-Se incluye un servidor HTTP sencillo para integrar el POS con otras
-aplicaciones.
+Se incluye un servidor HTTP sencillo para integrar el POS con otras aplicaciones.
 
 ```bash
 python api.py
