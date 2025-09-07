@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Bistec de res",
+        "price_per_kg": 250.0,
+        "initial_weight": 10.0,
+        "current_weight": 10.0
+    },
+    {
+        "name": "Chuleta de cerdo",
+        "price_per_kg": 180.0,
+        "initial_weight": 8.0,
+        "current_weight": 8.0
+    }
+]
